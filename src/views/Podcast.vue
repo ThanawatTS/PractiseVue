@@ -2,6 +2,8 @@
     <div class="podcast">
         <h1>Postcast</h1>
         <Albums />
+        <br>
+        <Tracks />
     </div>
 </template>
 
@@ -12,7 +14,8 @@ import Tracks from '@/components/podcast/Tracks.vue'
 export default {
     name: 'podcast',
     components: {
-        Albums
+        Albums,
+        Tracks
     },
     data() {
         return {

@@ -1,9 +1,9 @@
 <template>
     <div id="Albums">
         <v-flex xs12>
-            <span>Albums</span>
+            <h1 >Albums</h1>
             <div style="display: inline;" >
-                <b-button v-b-modal.modal-prevent-closing>Add</b-button>
+                <b-button v-b-modal.modal-prevent-closing  variant="success" >Add</b-button>
 
                 <b-modal
                 id="modal-prevent-closing"
@@ -134,7 +134,7 @@
         <div class="show-mobile">
             <v-flex xs12 v-for="(imgDes, index) in imgarr"
                 v-bind:key="imgDes.id">
-            <v-card color="cyan darken-2" class="white--text" style="margin-bottom: 5%">
+            <v-card style="margin-top: 5%">
               <v-layout>
                 <v-flex xs5>
                   <v-img
@@ -144,24 +144,14 @@
                   ></v-img>
                 </v-flex>
                 <v-flex xs7>
-                  <v-card-title primary-title>
                     <div>
                       <div class="headline">{{index}}</div>
-                      <div>imgDes.description</div>
-                    
+                      <div>{{imgDes.description}}</div>
                     </div>
-                  </v-card-title>
                 </v-flex>
               </v-layout>
-              <v-divider light></v-divider>
-              <v-card-actions class="pa-3">
-                Rate this album
-                <v-spacer></v-spacer>
-                
-              </v-card-actions>
             </v-card>
           </v-flex>
-
         </div>
        
 
