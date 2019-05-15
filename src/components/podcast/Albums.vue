@@ -1,10 +1,74 @@
 <template>
     <div id="Albums">
-        <span>Albums</span>
-        <b-button id="btn-add" variant="info" >add</b-button>
-        <p v-if="moreDetail">more...</p>
+        <v-flex xs12>
+            <span>Albums</span>
+            <div style="display: inline;" >
+                <b-button v-b-modal.modal-prevent-closing>Add</b-button>
 
-        <div class="hide-mobile">
+                <b-modal
+                id="modal-prevent-closing"
+                ref="modal"
+                title="Add Album"
+                @show="resetModal"
+                @hidden="resetModal"
+                @ok="handleOk"
+                >
+                <form ref="form" @submit.stop.prevent="handleSubmit">
+                    <b-form-group
+                    
+                    label="Album Name"
+                    label-for="name-input"
+                    invalid-feedback="Name is required"
+                    >
+                    <b-form-input
+                        id="albumName-input"
+                        v-model="albumName"
+                        required
+                    ></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group
+                    
+                    label="Album Owner"
+                    label-for="name-input"
+                    invalid-feedback="Name is required"
+                    >
+                    <b-form-input
+                        id="albumOwner-input"
+                        v-model="albumOwner"
+                        required
+                    ></b-form-input>
+                    </b-form-group>
+
+                    <div class="file-field">    
+                        <div class="btn blue-gradient btn-sm float-left">
+                        <span>Choose files</span>
+                        <input type="file" multiple>
+                        </div>
+                    </div>
+                
+                </form>
+                
+           
+                <template slot="modal-footer" slot-scope="{ close, saveChange, }">
+      
+                <b-button size="sm" variant="light" @click="close()">
+                    close
+                </b-button>
+                <b-button size="sm" variant="primary" @click="saveChange()">
+                    Save changes
+                </b-button>
+      
+                </template>
+                
+                </b-modal>
+            </div>
+        
+            <p v-if="moreDetail" style="display: inline; float: right;">more...</p>
+        </v-flex>
+        
+
+        <div class="hide-mobile-4Col">
         <v-layout>
             <v-layout row wrap>
              <v-flex xs3  v-for="(imgDes, index) in imgarr"
@@ -34,6 +98,38 @@
             </v-layout>
         </v-layout>
         </div>
+
+        <div class="hide-mobile-2Col">
+        <v-layout>
+            <v-layout row wrap>
+             <v-flex xs5  v-for="(imgDes, index) in imgarr"
+                v-bind:key="imgDes.id">
+                <div v-if="index < 4">
+                    <v-card id="img-card">
+                        <v-img
+                        :src="imgDes.picture"
+                        aspect-ratio="1.5"
+                        ></v-img>
+                        
+
+                        <v-card-title primary-title>
+                            <div>
+                                <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
+                            <div></div>
+                            </div>
+                        </v-card-title>
+
+                        <v-card-actions>
+                            <v-btn flat color="orange">Share</v-btn>
+                            <v-btn flat color="orange">Explore</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </div>
+                </v-flex>
+            </v-layout>
+        </v-layout>
+        </div>
+
         
         <div class="show-mobile">
             <v-flex xs12 v-for="(imgDes, index) in imgarr"
@@ -73,11 +169,16 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'albums',
     data () {
         return {
+            albumName: '',
+            albumOwner: '',
             moreDetail: false,
+            files: [],
             imgarr: [ 
                 {
                     id: 0,
@@ -133,6 +234,38 @@ export default {
                 ]
         }
     },
+    methods: {
+        checkFormValidity() {
+            const valid = this.$refs.form.checkValidity()
+            this.nameState = valid ? 'valid' : 'invalid'
+            return valid
+        },
+        resetModal() {
+            this.name = ''
+            this.nameState = null
+        },
+        handleOk(bvModalEvt) {
+            // Prevent modal from closing
+            bvModalEvt.preventDefault()
+            // Trigger submit handler
+            this.handleSubmit()
+        },
+        handleSubmit() {
+        // Exit when the form isn't valid
+            if (!this.checkFormValidity()) {
+            return
+        }
+            // Push the name to submitted names
+            //this.submittedNames.push(this.name)
+            // Hide the modal manually
+            //this.$nextTick(() => {
+            //this.$refs.modal.hide()
+            //})
+        },
+        handleChange(v) {
+        this.files = v;
+        }
+    },
     beforeMount(){
         if(this.$data.imgarr.length > 8){
             this.$data.moreDetail = true;
@@ -145,7 +278,8 @@ export default {
 
     #Albums {
         text-align: left;
-        margin: 3%
+        margin: auto;
+        width: 80%;
     }
     
     #btn-add {
@@ -161,23 +295,52 @@ export default {
         margin-left: 5%;
         margin-top: 10%;
     }
+    
 
- @media only screen and (min-width: 100px) {
-      .show-mobile {
-        display: block;
-      }
-      .hide-mobile {
-        display: none;
-      }
+@media only screen and (min-width: 100px) {
+    .show-mobile {
+    display: block;
     }
 
- @media only screen and (min-width: 701px) {
-      .show-mobile {
-        display: none;
-      }
-      .hide-mobile {
-        display: block;
-      }
+    .hide-mobile-4Col {
+    display: none;
     }
+
+    .hide-mobile-2Col {
+    display: none;
+    }
+}
+
+
+@media only screen and (min-width: 376px) {
+    
+    .show-mobile {
+    display: none;
+    }
+
+    .hide-mobile-4Col {
+    display: none;
+    }
+
+    .hide-mobile-2Col {
+    display: block;
+    margin-left: 10%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .show-mobile {
+    display: none;
+    }
+
+    .hide-mobile-4Col {
+    display: block;
+    margin-left: 5%;
+    }
+
+    .hide-mobile-2Col {
+    display: none;
+    }
+}
 
 </style>
