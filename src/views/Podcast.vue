@@ -1,9 +1,13 @@
 <template>
     <div class="podcast">
-        <h1>Postcast</h1>
+        <h1 style="margin-left:5%;margin-top:2%">Postcast</h1>
+        <v-card class="card-size">
         <Albums />
+        </v-card>
         <br>
+        <v-card class="card-size">
         <Tracks />
+        </v-card>
     </div>
 </template>
 
@@ -26,5 +30,13 @@ export default {
 </script>
 
 <style scope>
+    .card-size {
+        margin: auto;
+        padding: 2%;
+        width: 90%;
+
+    }
+
+
 </style>
 

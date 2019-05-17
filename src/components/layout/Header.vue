@@ -1,7 +1,7 @@
 <template>
     <header class="header">
     <b-navbar toggleable="lg" type="dark" >
-    <b-navbar-brand>
+    <b-navbar-brand style="margin-left: 5%">
         <router-link to='/'>
        <img src="https://placekitten.com/g/30/30" class="d-inline-block align-top" alt="Kitten">
        LearnDina
@@ -42,9 +42,29 @@ export default {
     border-left: 2px #cccccc solid;
   }
 
-  @media only screen and (max-width: 990px) {
+  @media only screen and (min-width: 100px) {
+  .header {
+    background: green;
+  }
+
+  @media only screen and (min-width: 700px) {
   .header {
     background: blue;
+  }
+
+  .topbar-section {
+    border-left: 0px #cccccc solid;
+  }
+
+  }
+  @media only screen and (min-width: 1200px) {
+  .header {
+    background: red;
+  }
+  .topbar-section {
+    border-left: 0px #cccccc solid;
+  }
+
   }
 
   .topbar-section {
