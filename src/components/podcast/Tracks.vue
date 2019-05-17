@@ -146,7 +146,7 @@
                     </b-form-group>
 
                     <v-container fluid grid-list-xl>
-                      <v-flex xs10 d-flex>
+                      <v-flex xs12 d-flex>
                         <span>Category</span>
                         <v-select
                         style="margin-left: 5%"
@@ -376,7 +376,6 @@ export default {
         },
       chooseEditIndex(index) {
             this.$data.chooseEdit = index
-            console.log(this.$data.chooseEdit)
       }
     },
     beforeMount() {

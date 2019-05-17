@@ -75,7 +75,7 @@
                 v-bind:key="imgDes.id">
                 <v-btn-toggle style="margin-left: 20%; margin-top: 10%;">
                 <div v-on:click="checkClickIndex(index)">
-                <div v-if="index < 5">
+                <div v-if="index < 10">
                     <v-card id="img-card">
                         <v-img
                         :src="imgDes.picture"
@@ -125,10 +125,10 @@
         <div class="hide-mobile-2Col">
         <v-layout>
             <v-layout row wrap style="margin-left: 1%">
-             <v-flex xs5 style="margin-left: 20%" v-for="(imgDes, index) in imgarr"
+             <v-flex xs5 style="margin-left: 5%" v-for="(imgDes, index) in imgarr"
                 v-bind:key="imgDes.id">
                 
-              <v-btn-toggle style="margin-left: 5%;margin-top: 5%">
+              <v-btn-toggle style="margin-left: 20%;margin-top: 5%">
                     <div v-on:click="checkClickIndex(index)">
                 <div v-if="index < 10">
                     <v-card id="img-card">

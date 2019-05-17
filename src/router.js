@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import AdminPodcast from './views/AdminPodcast.vue'
 import Podcast from './views/Podcast.vue'
 import Blog from './views/Blog.vue'
 
@@ -22,14 +23,19 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
+      path: '/adminpodcast',
+      name: 'adminpodcast',
+      component: AdminPodcast
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: Blog
+    },
+    {
       path: '/podcast',
       name: 'podcast',
       component: Podcast
-    },
-    {
-      path: '/Blog',
-      name: 'blog',
-      component: Blog
     }
   ]
 })

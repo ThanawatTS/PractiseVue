@@ -15,7 +15,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item >PARTNER</b-nav-item>
-        <b-nav-item > <router-link to='/blog'>BLOG</router-link></b-nav-item>
+        <b-nav-item > <router-link to='blog'>BLOG</router-link></b-nav-item>
         <b-nav-item > <router-link to='podcast'>PODCAST</router-link></b-nav-item>
         <b-nav-item class="topbar-section"></b-nav-item>
         <b-button id="btn-login" size="sm" class="my-2 my-sm-0">Login</b-button>
