@@ -60,7 +60,6 @@
         
             <router-link to="/morealbums"><p v-if="moreDetail" style="display: inline; float: right;">more...</p> </router-link>
         </v-flex>
-        
 
         <div class="hide-mobile-4Col">
         <v-layout>
@@ -83,7 +82,6 @@
                             <span style="font-family: 'Courier New', Courier, monospace;">{{subtitlecardArr[index]}}</span>
                             </div>
                         </v-card-title>
-                        
                     </v-card>
                 </div>
                 </div>
@@ -97,7 +95,6 @@
                             <v-icon color="info">more_vert</v-icon>
                             </v-btn>
                     </template>
-
                     <v-list>
                         <v-list-tile
                             v-for="(item, i) in items"
@@ -140,7 +137,6 @@
                     </v-card>
                 </div>
                  </div>
-           
                 <v-menu bottom left v-if="index < 5">
                     <template v-slot:activator="{ on }">
                         <v-btn
@@ -168,15 +164,13 @@
         </v-layout>
         </div>
 
-        
         <div class="show-mobile">
             <div style="margin-left: 10%;">
             <v-layout row wrap>
              <v-flex v-for="(imgDes, index) in imgarr"
                 v-bind:key="imgDes.id">
-                
                 <v-btn-toggle style="margin-left: 20%;margin-top: 5%">
-                    <div v-on:click="gotoVideoDetail(index)">
+                <div v-on:click="gotoVideoDetail(index)">
                 <div v-if="index < 10">
                     <v-card id="img-card">
                         <v-img
@@ -191,11 +185,9 @@
                             <span style="font-family: 'Courier New', Courier, monospace;">{{subtitlecardArr[index]}}</span>
                             </div>
                         </v-card-title>
-                        
                     </v-card>
                 </div>
                  </div>
-              
                  <v-menu bottom left v-if="index < 5">
                     <template v-slot:activator="{ on }">
                         <v-btn
@@ -269,17 +261,14 @@
                     </b-form-group>
                 
                 </form>
-                
-           
+
                 <template slot="modal-footer" slot-scope="{ close, saveChange, }">
-      
-                <b-button size="sm" variant="light" @click="close()">
-                    close
-                </b-button>
-                <b-button size="sm" variant="primary" @click="saveChange()">
-                    Save changes
-                </b-button>
-      
+                    <b-button size="sm" variant="light" @click="close()">
+                        close
+                    </b-button>
+                    <b-button size="sm" variant="primary" @click="saveChange()">
+                        Save changes
+                    </b-button>
                 </template>
                 
                 </b-modal>

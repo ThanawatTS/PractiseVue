@@ -4,7 +4,6 @@
            <h1 style="display:inline; margin-right: 3%;">Album</h1>
             <div style="display: inline;" >
                 <b-button v-b-modal.modal-prevent-addAlbums  variant="success" id="btn-albumAdd">Add</b-button>
-
                 <b-modal
                 id="modal-prevent-addAlbums"
                 ref="modal"
@@ -15,7 +14,6 @@
                 >
                 <form ref="form" @submit.stop.prevent="handleSubmit">
                     <b-form-group
-                    
                     label="Album Name"
                     label-for="albumName-input"
                     invalid-feedback="Name is required"
@@ -28,7 +26,6 @@
                     </b-form-group>
 
                     <b-form-group
-                    
                     label="Album Owner"
                     label-for="albumOwner-input"
                     invalid-feedback="Name is required"
@@ -46,19 +43,16 @@
                         <input type="file" multiple>
                         </div>
                     </div>
-                
                 </form>
                 
            
                 <template slot="modal-footer" slot-scope="{ close, saveChange, }">
-      
-                <b-button size="sm" variant="light" @click="close()">
-                    close
-                </b-button>
-                <b-button size="sm" variant="primary" @click="saveChange()">
-                    Save changes
-                </b-button>
-      
+                    <b-button size="sm" variant="light" @click="close()">
+                        close
+                    </b-button>
+                    <b-button size="sm" variant="primary" @click="saveChange()">
+                        Save changes
+                    </b-button>
                 </template>
                 
                 </b-modal>
@@ -67,7 +61,6 @@
             <p v-if="moreDetail" style="display: inline; float: right;">more...</p>
         </v-flex>
         
-
         <div class="hide-mobile-4Col">
         <v-layout>
             <v-layout row wrap style="margin-left:1%">
@@ -81,29 +74,6 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                        
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: left;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
-
                         </v-img>
                         <v-card-title style="width: 220px">
                             <div>
@@ -115,7 +85,28 @@
                         
                     </v-card>
                 </div>
-                 </div>
+                </div>
+                <v-menu bottom left v-if="index < 10">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 </v-btn-toggle>
             </v-flex>
             </v-layout>
@@ -137,27 +128,7 @@
                         aspect-ratio="1.4"
                         >
                         
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: right;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
+                         
 
                         </v-img>
                         <v-card-title style="width: 220px">
@@ -170,9 +141,31 @@
                         
                     </v-card>
                 </div>
-                 </div>
+                </div>
+
+                <v-menu bottom left v-if="index < 10">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
+
                 </v-btn-toggle>
-               
                 </v-flex>
             </v-layout>
         </v-layout>
@@ -193,27 +186,7 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: right;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
+                         
 
                         </v-img>
                         <v-card-title style="width: 220px">
@@ -223,14 +196,34 @@
                             <span style="font-family: 'Courier New', Courier, monospace;">{{subtitlecardArr[index]}}</span>
                             </div>
                         </v-card-title>
-                        
                     </v-card>
                 </div>
-                 </div>
+                </div>
+                <v-menu bottom left v-if="index < 5">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 </v-btn-toggle>
-                
-                </v-flex>
+            </v-flex>
             </v-layout>
+            
             <b-modal
                 id="modal-prevent-edit"
                 ref="modal"
@@ -241,7 +234,6 @@
                 >
                 <form ref="form" @submit.stop.prevent="handleSubmit">
                     <b-form-group
-                    
                     label="Album Name"
                     label-for="albumName-input"
                     invalid-feedback="Name is required"
@@ -254,7 +246,6 @@
                     </b-form-group>
 
                     <b-form-group
-                    
                     label="Album Owner"
                     label-for="albumOwner-input"
                     invalid-feedback="Name is required"
@@ -266,9 +257,7 @@
                     ></b-form-input>
                     </b-form-group>
         
-
                     <b-form-group
-                    
                     label="Album Image"
                     label-for="name-input"
                     invalid-feedback="Name is required"
@@ -278,26 +267,18 @@
                         aspect-ratio="1"
                         ></v-img>
                     </b-form-group>
-                
                 </form>
-                
-           
                 <template slot="modal-footer" slot-scope="{ close, saveChange, }">
-      
                 <b-button size="sm" variant="light" @click="close()">
                     close
                 </b-button>
                 <b-button size="sm" variant="primary" @click="saveChange()">
                     Save changes
                 </b-button>
-      
                 </template>
-                
                 </b-modal>
             </div>
         </div>
-       
-
     </div>
 </template>
 

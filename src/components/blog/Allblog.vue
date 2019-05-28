@@ -20,9 +20,7 @@
         <div id="cardBlog">
         <div v-for="(img, index) in detail" :key="index" style="margin-left: 5%; margin-bottom:5%; width: 800px" >
         <v-card >
-        
         <v-card-title  primary-title>
-            
           <div>
             <div><h2>Stop What You're Doing And Learn Coding If You And A Job In Ten Year bhabhabhabhabha</h2></div>
             <span class="grey--text"> 20 May 2019 - Sololearn </span>
@@ -33,23 +31,19 @@
                 <span>{{detail[0].like}}</span>
             </div>
           </div>
-        </v-card-title>
-
-        
+        </v-card-title>        
         <v-img
           :src="img.picture"
           aspect-ratio="2"
-          
         ></v-img>
 
-        <v-card-title  primary-title>
-            
+        <v-card-title  primary-title>    
           <div>
-           <span> The v-card component is a versatile component that can be 
-               used for anything from a panel to a static image. The card component 
-               has numerous helper components to make markup as easy as possible.
-                Components that have no listed options use Vue's functional component 
-                option for faster rendering and serve as markup sugar to make building easier.
+           <span>   The v-card component is a versatile component that can be 
+                    used for anything from a panel to a static image. The card component 
+                    has numerous helper components to make markup as easy as possible.
+                    Components that have no listed options use Vue's functional component 
+                    option for faster rendering and serve as markup sugar to make building easier.
            </span>
 
            <v-btn
@@ -62,25 +56,18 @@
             </v-btn>
           </div>
         </v-card-title>
+        </v-card>
+    </div>
+    </div>
 
-      </v-card>
-         
-        </div>
-
-
-        </div>
-
-      <div class="text-xs-center" style="margin-top: 5%; margin-bottom: 5%">
-    <v-pagination
-      v-model="page"
-      :length="4"
-      prev-icon="mdi-menu-left"
-      next-icon="mdi-menu-right"
-    ></v-pagination>
-  
-  </div>
-  
-
+    <div class="text-xs-center" style="margin-top: 5%; margin-bottom: 5%">
+        <v-pagination
+            v-model="page"
+            :length="4"
+            prev-icon="mdi-menu-left"
+            next-icon="mdi-menu-right"
+        ></v-pagination>
+    </div>
     </div>
 </template>
 

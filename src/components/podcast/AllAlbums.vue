@@ -10,35 +10,30 @@
         <v-icon>home</v-icon> {{videoDetail[0].view}}
         <v-icon>home</v-icon> {{videoDetail[1].view}}
         </div>
-
         </b-col>
+
         <b-col cols="9">
         <v-card>
             <v-list v-for="(detail, index) in videoDetail" :key="index" >
-        
-        <div v-if="(videoDetail.length <= 5)" >
-            <v-list-tile @click="">
-                <v-list-tile-content>
-                    <v-list-tile-title>{{detail.title}}</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action style="margin-right: 1%">
-               
-                </v-list-tile-action>
-                    {{detail.time}} 
+            <div v-if="(videoDetail.length <= 5)" >
+                <v-list-tile @click="">
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{detail.title}}</v-list-tile-title>
+                    </v-list-tile-content>
+                    <v-list-tile-action style="margin-right: 1%">
+                    </v-list-tile-action>
+                        {{detail.time}} 
                 </v-list-tile>
                 <v-divider ></v-divider>
-
                 <div v-if="index == videoDetail.length - 1">
                 <v-list-tile>
                 <v-list-tile-content>
-                    <v-btn  style="margin: 0 auto;" @click="controlTrack">{{ viewBtn }}</v-btn>
+                <v-btn  style="margin: 0 auto;" @click="controlTrack">{{ viewBtn }}</v-btn>
                 </v-list-tile-content>
                 </v-list-tile>
                 </div>
-             
         </div>
         <div v-if="(videoDetail.length > 5)" >
-        
         <div v-if="!showAllTrack">
             <div v-if="(index < 5)">
                 <v-list-tile @click="">
