@@ -21,6 +21,10 @@
         <b-row>
         <b-col cols="3">
         <b-img id="video-pic" src="https://images.unsplash.com/photo-1420593248178-d88870618ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></b-img>
+        <h2>The Secret Sauce</h2>
+        <span style="font-family: 'Courier New', Courier, monospace;">THE STANDARD Podcast</span><br>
+        <v-icon>home</v-icon> {{videoDetail[0].view}}
+        <v-icon>home</v-icon> {{videoDetail[1].view}}
         
         </b-col>
         <b-col cols="9">

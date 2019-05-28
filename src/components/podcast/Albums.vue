@@ -15,7 +15,6 @@
                 >
                 <form ref="form" @submit.stop.prevent="handleSubmit">
                     <b-form-group
-                    
                     label="Album Name"
                     label-for="albumName-input"
                     invalid-feedback="Name is required"
@@ -26,9 +25,7 @@
                         required
                     ></b-form-input>
                     </b-form-group>
-
                     <b-form-group
-                    
                     label="Album Owner"
                     label-for="albumOwner-input"
                     invalid-feedback="Name is required"
@@ -46,10 +43,7 @@
                         <input type="file" multiple>
                         </div>
                     </div>
-                
                 </form>
-                
-           
                 <template slot="modal-footer" slot-scope="{ close, saveChange, }">
       
                 <b-button size="sm" variant="light" @click="close()">
@@ -64,7 +58,7 @@
                 </b-modal>
             </div>
         
-            <p v-if="moreDetail" style="display: inline; float: right;">more...</p>
+            <router-link to="/morealbums"><p v-if="moreDetail" style="display: inline; float: right;">more...</p> </router-link>
         </v-flex>
         
 
@@ -74,7 +68,7 @@
              <v-flex xs2 style="margin-left: 1%" v-for="(imgDes, index) in imgarr"
                 v-bind:key="imgDes.id">
                 <v-btn-toggle style="margin-left: 20%; margin-top: 10%;">
-                <div v-on:click="checkClickIndex(index)">
+                <div v-on:click="gotoVideoDetail(index)">
                 <div v-if="index < 5">
                     <v-card id="img-card">
                         <v-img
@@ -127,7 +121,7 @@
                 v-bind:key="imgDes.id">
                 
               <v-btn-toggle style="margin-left: 5%;margin-top: 5%">
-                    <div v-on:click="checkClickIndex(index)">
+                    <div v-on:click="gotoVideoDetail(index)">
                 <div v-if="index < 10">
                     <v-card id="img-card">
                         <v-img
@@ -182,7 +176,7 @@
                 v-bind:key="imgDes.id">
                 
                 <v-btn-toggle style="margin-left: 20%;margin-top: 5%">
-                    <div v-on:click="checkClickIndex(index)">
+                    <div v-on:click="gotoVideoDetail(index)">
                 <div v-if="index < 10">
                     <v-card id="img-card">
                         <v-img
@@ -297,10 +291,16 @@
 </template>
 
 <script>
+import AlbumsVideo from '@/components/podcast/AlbumsVideo.vue'
+import MoreAlbums from '@/components/podcast/MoreAlbums.vue'
 
 
 export default {
     name: 'albums',
+    components: {
+        AlbumsVideo,
+        MoreAlbums
+    },
     data () {
         return {
             items: [
@@ -428,7 +428,7 @@ export default {
         handleChange(v) {
         //this.files = v;
         },
-        checkClickIndex(index) {
+        gotoVideoDetail(index) {
             this.$router.push('/albumsVideo')
         },
         chooseEditIndex(index) {
