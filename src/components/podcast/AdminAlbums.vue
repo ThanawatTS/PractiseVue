@@ -193,7 +193,6 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                        
                          <v-menu bottom left >
                             <template v-slot:activator="{ on }">
                                 <v-btn

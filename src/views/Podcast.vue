@@ -34,7 +34,7 @@ export default {
     name: 'podcast',
     components: {
         Albums,
-        Tracks
+        Tracks,
     },
     data() {
         return {
@@ -50,4 +50,7 @@ export default {
         padding: 2%;
         width: 90%;
     }
+
+ 
+
 </style>

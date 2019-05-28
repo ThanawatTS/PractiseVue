@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import AdminPodcast from './views/AdminPodcast.vue'
 import Podcast from './views/Podcast.vue'
 import Blog from './views/Blog.vue'
+import AlbumsVideo from '@/components/podcast/AlbumsVideo.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/podcast',
       name: 'podcast',
       component: Podcast
+    },
+    {
+      path: '/albumsVideo',
+      name: 'albumsvideo',
+      component: AlbumsVideo
     }
   ]
 })

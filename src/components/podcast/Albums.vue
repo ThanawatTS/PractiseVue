@@ -81,29 +81,6 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                        
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: left;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
-
                         </v-img>
                         <v-card-title style="width: 220px">
                             <div>
@@ -115,7 +92,28 @@
                         
                     </v-card>
                 </div>
-                 </div>
+                </div>
+                <v-menu bottom left v-if="index < 5">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 </v-btn-toggle>
             </v-flex>
             </v-layout>
@@ -136,29 +134,6 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                        
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: right;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
-
                         </v-img>
                         <v-card-title style="width: 220px">
                             <div>
@@ -171,8 +146,29 @@
                     </v-card>
                 </div>
                  </div>
+           
+                <v-menu bottom left v-if="index < 5">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 </v-btn-toggle>
-               
                 </v-flex>
             </v-layout>
         </v-layout>
@@ -193,29 +189,6 @@
                         :src="imgDes.picture"
                         aspect-ratio="1.4"
                         >
-                        
-                         <v-menu bottom left >
-                            <template v-slot:activator="{ on }">
-                                <v-btn
-                                icon
-                                style="float: right;"
-                                v-on="on"
-                                >
-                                <v-icon color="info">more_vert</v-icon>
-                                </v-btn>
-                            </template>
-
-                            <v-list>
-                                <v-list-tile
-                                v-for="(item, i) in items"
-                                :key="i"
-                                @click="chooseEditIndex(index)"
-                                >
-                                    <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                            </v-menu>
-
                         </v-img>
                         <v-card-title style="width: 220px">
                             <div>
@@ -228,8 +201,29 @@
                     </v-card>
                 </div>
                  </div>
+              
+                 <v-menu bottom left v-if="index < 5">
+                    <template v-slot:activator="{ on }">
+                        <v-btn
+                            icon
+                            style="position: absolute; z-index: 1;right: 0"
+                            v-on="on"
+                            >
+                            <v-icon color="info">more_vert</v-icon>
+                            </v-btn>
+                    </template>
+
+                    <v-list>
+                        <v-list-tile
+                            v-for="(item, i) in items"
+                            :key="i"
+                            @click="chooseEditIndex(index)"
+                            >
+                        <v-list-tile-title v-b-modal.modal-prevent-edit> {{ item.title }} </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 </v-btn-toggle>
-                
                 </v-flex>
             </v-layout>
             <b-modal
@@ -435,7 +429,7 @@ export default {
         //this.files = v;
         },
         checkClickIndex(index) {
-            console.log(index)
+            this.$router.push('/albumsVideo')
         },
         chooseEditIndex(index) {
             this.$data.chooseEdit = index
